@@ -125,3 +125,6 @@ function y() {
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+#starship
+eval "$(starship init zsh)"
