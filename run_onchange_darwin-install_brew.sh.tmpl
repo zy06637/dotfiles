@@ -1,4 +1,5 @@
 #!/bin/sh
+# Brewfile hash: {{ include "Brewfile" | sha256sum }}
 
 if command -v brew >/dev/null 2>&1; then
   echo "Running brew bundle..."

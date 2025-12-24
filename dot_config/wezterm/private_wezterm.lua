@@ -10,7 +10,7 @@ local config = wezterm.config_builder()
 config.color_scheme = "Gruvbox dark, soft (base16)"
 
 -- 字体设置
-config.font = wezterm.font("Hack Nerd Font Mono", { weight = "Regular" })
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular" })
 config.font_size = 14.0
 config.line_height = 1.1
 
