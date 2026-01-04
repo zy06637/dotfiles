@@ -10,31 +10,33 @@ Managed with [chezmoi](https://www.chezmoi.io/).
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### 2. Install dependencies
+### 2. Install chezmoi and apply dotfiles
 
 ```bash
-brew install fish zoxide yazi nvim gpg tmux btop starship
-brew install --cask wezterm aerospace
+brew install chezmoi
+chezmoi init --apply kennethx
 ```
 
-### 3. Set fish as default shell
+This will:
+- Clone this repo
+- Apply all dotfiles (including `~/Brewfile`)
+- Auto-install fisher and plugins (via `run_once` script)
+- Auto-install yazi plugins (via `run_once` script)
+
+### 3. Install all dependencies via Brewfile
+
+```bash
+brew bundle --global
+```
+
+This installs all CLI tools, casks, fonts, and VS Code extensions.
+
+### 4. Set fish as default shell
 
 ```bash
 echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
 chsh -s /opt/homebrew/bin/fish
 ```
-
-### 4. Install chezmoi and apply dotfiles
-
-```bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply kennethx
-```
-
-This will:
-- Clone this repo
-- Apply all dotfiles
-- Auto-install fisher and plugins (via `run_once` script)
-- Auto-install yazi plugins (via `run_once` script)
 
 ## Daily Usage
 
