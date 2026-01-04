@@ -28,3 +28,8 @@ abbr -a la 'ls -A'
 abbr -a .. 'cd ..'
 abbr -a ... 'cd ../..'
 abbr -a c clear
+
+abbr -a yd 'y ~/Downloads'
+abbr -a yr 'y ~/Repo'
+abbr -a yw 'y ~/Work'
+abbr -a y. 'y ~/.config'
