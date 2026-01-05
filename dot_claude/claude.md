@@ -1,0 +1,37 @@
+# Actions
+After completing the addition of a specific feature, you must update the current repository’s `README` accordingly. If a `README_CN` also exists, it must be updated at the same time.
+
+# When starting the development of a new project or refactoring an existing one, the following rules must be followed:
+
+This project adopts a layered “atomic architecture” that emphasizes clarity, maintainability, and high cohesion with low coupling.
+
+## 1. L1 Entry Layer
+
+* Contains **a single entry module only**, serving as the system’s sole external access point.
+* Responsible for initialization, coordinating calls between layers, global exception handling, and log routing.
+* **Must not implement any business logic**; it is limited to process orchestration.
+
+## 2. L2 Coordination Layer
+
+* Acts as the “commander,” “data dispatcher,” and “interface adapter”: orchestrates atomic capabilities, manages data flow, and encapsulates external APIs.
+* Must provide clear interface contracts (including input/output types, error codes, and invocation protocols).
+* **May depend only on the L3 Molecular Layer and must not directly invoke the L4 Atomic Layer**.
+
+## 3. L3 Molecular Layer
+
+* Consists of **business function units** composed of multiple atomic capabilities (e.g., user registration workflows, image preprocessing pipelines, model inference chains).
+* **Molecules must not depend on or call each other**—all collaboration must be mediated through the Coordination Layer.
+* Supports independent unit testing and version replacement.
+
+## 4. L4 Atomic Layer
+
+* Each atom is a **single-responsibility, minimal runnable unit** (e.g., a function, a pure class, or a stateless service).
+* A single atomic implementation is recommended to be ≤ 80 lines of logical code (excluding comments and blank lines) to ensure readability and testability.
+* **Atoms must not call each other or share state**—all composition is performed in the Molecular Layer.
+
+## General Constraints
+
+* **Strictly one-way dependency direction**: L1 → L2 → L3 → L4. Reverse or cross-layer dependencies are prohibited.
+* **Directory structure should explicitly reflect the layering** (e.g., `/entry`, `/coordinator`, `/molecules`, `/atoms`).
+* **Each layer exposes clearly defined interfaces/contracts**, hiding internal implementation details (encapsulation).
+* Supports horizontal scalability: new features are added by introducing new atoms/molecules without modifying existing code (Open–Closed Principle).
