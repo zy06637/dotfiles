@@ -33,3 +33,6 @@ abbr -a yd 'y ~/Downloads'
 abbr -a yr 'y ~/Repo'
 abbr -a yw 'y ~/Work'
 abbr -a y. 'y ~/.config'
+
+abbr -a cra 'chezmoi re-add'
+abbr -a cdi 'chezmoi diff'
