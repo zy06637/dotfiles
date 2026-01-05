@@ -245,10 +245,10 @@ on-mode-changed = []
     run = 'move-node-to-workspace O'
 [[on-window-detected]]
     if.app-id = 'notion.id'   
-    run = 'move-node-to-workspace O'
+    run = 'move-node-to-workspace I'
 [[on-window-detected]]
     if.app-id = 'net.shinyfrog.bear'   
-    run = 'move-node-to-workspace O'
+    run = 'move-node-to-workspace U'
 [[on-window-detected]]
     if.app-id = 'com.spotify.client'   
     run = 'move-node-to-workspace M'
