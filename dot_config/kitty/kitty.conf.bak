@@ -1,0 +1,95 @@
+
+# =============================================================================
+# 外观设置
+# =============================================================================
+
+# 颜色主题：Gruvbox Dark Soft
+include ~/.config/kitty/themes/gruvbox_dark_soft.conf
+
+# 字体
+font_family      JetBrainsMono Nerd Font Mono
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size        14.0
+line_height      1.1
+
+# 窗口透明与模糊（macOS）
+background_opacity 0.88
+macos_titlebar_color background
+macos_window_blur 50
+
+# 窗口装饰
+window_padding_width 10
+window_padding_height 10
+hide_window_decorations no
+
+# 初始窗口大小
+initial_window_width  120c
+initial_window_height 35c
+
+# =============================================================================
+# Tab 栏设置
+# =============================================================================
+
+tab_bar_edge top
+tab_bar_style powerline
+tab_max_width 32
+inactive_tab_background #32302f
+active_tab_background   #504945
+active_tab_foreground   #ebdbb2
+inactive_tab_foreground #a89984
+
+# 仅一个 tab 时隐藏
+hide_tab_bar_if_only_one_tab yes
+
+# =============================================================================
+# 光标
+# =============================================================================
+
+cursor_shape block
+cursor_blink_interval 0.5
+cursor_stop_blinking_after 0
+
+# =============================================================================
+# 性能与行为
+# =============================================================================
+
+scrollback_lines 10000
+enable_audio_bell no
+confirm_os_window_close 0
+detect_urls yes
+
+# =============================================================================
+# Shell 设置
+# =============================================================================
+
+shell /opt/homebrew/bin/fish -l
+term xterm-256color
+
+# =============================================================================
+# 快捷键（严格对照 WezTerm）
+# =============================================================================
+
+# --- 字体缩放 ---
+map cmd+= change_font_size all +1.0
+map cmd+- change_font_size all -1.0
+map cmd+0 change_font_size all 0
+
+# --- 全屏 ---
+map cmd+enter toggle_fullscreen
+
+# --- 复制模式 ---
+map cmd+shift+v enter_visual_select_mode
+
+# --- 搜索 ---
+map cmd+f start_search
+
+# --- 启动器（kitty 自带 launcher）---
+map cmd+shift+p show_launcher
+
+# --- 重新加载配置 ---
+map cmd+shift+r reload_config
+
+# --- Shift+Enter -> ESC + CR ---
+map shift+enter send_text all \x1b\r
