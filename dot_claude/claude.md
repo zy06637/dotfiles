@@ -1,9 +1,11 @@
 # Actions
-After completing the addition of a specific feature, you must update the current repository’s `README` accordingly. If a `README_CN` also exists, it must be updated at the same time.
+- After completing the addition of a specific feature, you must update the current repository’s `README` accordingly. If a `README_CN` also exists, it must be updated at the same time.
+- When analyzing the causes of a problem or providing a problem-solving approach, repeatedly consider whether there is only one correct answer and whether other possible causes exist.
+- When analyzing the causes of a problem, list all possible causes in descending order of likelihood. If there are too many causes, list the top ten. Do not perform any file creation or modification operations.
 
-# When starting the development of a new project or refactoring an existing one, the following rules must be followed:
-
+## When starting the development of a new project or refactoring an existing one, the following rules must be followed:
 This project adopts a layered “atomic architecture” that emphasizes clarity, maintainability, and high cohesion with low coupling.
+
 
 ## 1. L1 Entry Layer
 
