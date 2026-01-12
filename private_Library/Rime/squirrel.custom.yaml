@@ -14,6 +14,9 @@ patch:
     #com.jetbrains.intellij:
     #  ascii_mode: true
     #  vim_mode: true
+    net.kovidgoyal.kitty:
+      ascii_mode:true
+      vim_mode:true
 
   style:
     # 选择皮肤，亮色与暗色主题
@@ -21,8 +24,10 @@ patch:
     # color_scheme_dark: purity_of_form_custom
     # color_scheme: macos_light
     # color_scheme_dark: macos_dark
-    color_scheme: mac_light
-    color_scheme_dark: mac_dark
+    # color_scheme: mac_light
+    # color_scheme_dark: mac_dark
+    color_scheme: claude 
+    color_scheme_dark: claude
 
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
     text_orientation: horizontal # horizontal | vertical
@@ -556,3 +561,87 @@ patch:
       hilited_candidate_text_color: 0xC0E077 # 第一候选项文字颜色
       hilited_text_color: 0x6EC8F5 # 高亮拼音 (需要开启内嵌编码)
       text_color: 0x78E8F0 # 拼音等提示文字颜色
+
+    claude_light:
+      name: Claude 浅色
+      author: Claude AI
+      horizontal: true # true横排，false竖排
+      candidate_format: "%c %@ " # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 8 # 窗口圆角
+      hilited_corner_radius: 6 # 高亮圆角
+      line_spacing: 10 # 行间距(适用于竖排)
+      border_height: 5 # 窗口上下高度
+      border_width: 5 # 窗口左右宽度
+      font_face: "PingFangSC" # 候选词字体
+      font_point: 21 # 候选字大小
+      label_font_point: 13 # 候选编号大小
+      color_space: srgb # 色彩空间
+      back_color: 0xFAF8F5 # 候选条背景色 (#F5F8FA → BGR)
+      border_color: 0xE8E4E0 # 边框色 (#E0E4E8 → BGR)
+      text_color: 0x4A4A4A # 拼音行文字颜色 (#4A4A4A → BGR)
+      label_color: 0x8A8A8A # 预选栏编号颜色 (#8A8A8A → BGR)
+      candidate_text_color: 0x2D2D2D # 预选项文字颜色 (#2D2D2D → BGR)
+      comment_text_color: 0x9A9A9A # 拼音等提示文字颜色 (#9A9A9A → BGR)
+      hilited_text_color: 0x5777D9 # 高亮拼音 Claude橙 (#D97757 → BGR)
+      hilited_back_color: 0x5777D9 # 第一候选项背景色 Claude橙 (#D97757 → BGR)
+      hilited_candidate_back_color: 0x5777D9 # 候选文字背景色 Claude橙
+      hilited_candidate_text_color: 0xFFFFFF # 第一候选项文字颜色 白色
+      hilited_candidate_label_color: 0xFFFFFF # 第一候选项编号颜色 白色
+      hilited_comment_text_color: 0xE0E0E0 # 注解文字高亮 浅灰
+
+    claude_dark:
+      name: Claude 深色
+      author: Claude AI
+      horizontal: true # true横排，false竖排
+      candidate_format: "%c %@ " # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      corner_radius: 8 # 窗口圆角
+      hilited_corner_radius: 6 # 高亮圆角
+      line_spacing: 10 # 行间距(适用于竖排)
+      border_height: 5 # 窗口上下高度
+      border_width: 5 # 窗口左右宽度
+      font_face: "PingFangSC" # 候选词字体
+      font_point: 21 # 候选字大小
+      label_font_point: 13 # 候选编号大小
+      color_space: srgb # 色彩空间
+      back_color: 0x1E1A18 # 候选条背景色 深棕灰 (#181A1E → BGR)
+      border_color: 0x2E2A28 # 边框色 (#282A2E → BGR)
+      text_color: 0xA0A0A0 # 拼音行文字颜色 (#A0A0A0 → BGR)
+      label_color: 0x808080 # 预选栏编号颜色 (#808080 → BGR)
+      candidate_text_color: 0xE8E8E8 # 预选项文字颜色 (#E8E8E8 → BGR)
+      comment_text_color: 0x888888 # 拼音等提示文字颜色 (#888888 → BGR)
+      hilited_text_color: 0x5777D9 # 高亮拼音 Claude橙 (#D97757 → BGR)
+      hilited_back_color: 0x5777D9 # 第一候选项背景色 Claude橙 (#D97757 → BGR)
+      hilited_candidate_back_color: 0x5777D9 # 候选文字背景色 Claude橙
+      hilited_candidate_text_color: 0xFFFFFF # 第一候选项文字颜色 白色
+      hilited_candidate_label_color: 0xFFFFFF # 第一候选项编号颜色 白色
+      hilited_comment_text_color: 0xCCCCCC # 注解文字高亮 浅灰
+
+    claude:
+      color_space: srgb
+      back_color: '0x242626'
+      hilited_candidate_back_color: '0x5677DA'
+      text_color: '0xA5AEB0'
+      hilited_text_color: '0x5677DA'
+      candidate_text_color: '0xDCE6E8'
+      hilited_candidate_text_color: '0xF5F9FB'
+      comment_text_color: '0x5D8C78'
+      status_message_type: mix
+      candidate_format: '[label]. [candidate] [comment]'
+      candidate_list_layout: linear
+      text_orientation: horizontal
+      inline_preedit: false
+      inline_candidate: false
+      translucency: false
+      mutual_exclusive: false
+      memorize_size: true
+      showPaging: false
+      alpha: 1e+0
+      corner_radius: 7e+0
+      hilited_corner_radius: 0e+0
+      border_height: -2e+0
+      border_width: -2e+0
+      line_spacing: 5e+0
+      spacing: 8e+0
+      font_face: ComicShannsMonoNF-Regular
+      font_point: 1.6e+1
+

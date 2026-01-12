@@ -35,3 +35,7 @@ fish_vi_key_bindings
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# ruby
+set -gx LDFLAGS -L/opt/homebrew/opt/ruby/lib
+set -gx CPPFLAGS -I/opt/homebrew/opt/ruby/include
