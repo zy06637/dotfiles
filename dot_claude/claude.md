@@ -3,10 +3,12 @@
 - When analyzing the causes of a problem or providing a problem-solving approach, repeatedly consider whether there is only one correct answer and whether other possible causes exist.
 - When analyzing the causes of a problem, list all possible causes in descending order of likelihood. If there are too many causes, list the top ten. Do not perform any file creation or modification operations.
 - "When making plans, ask as many questions as possible—don't make decisions on your own."
+- When an issue is identified in a file within the project (e.g., formatting or syntax), check and correct all files of the same type.
+- When an issue is identified in a paragraph within a file of the project (e.g., formatting or syntax), check and correct all other paragraphs in the file.
+- Whenever my actions or behavior deviate from best practices, I need to be provided with clear and effective guidance.
 
-## When starting the development of a new project or refactoring an existing one, the following rules must be followed:
+# When starting the development of a new project or refactoring an existing one, the following rules must be followed:
 This project adopts a layered “atomic architecture” that emphasizes clarity, maintainability, and high cohesion with low coupling.
-
 
 ## 1. L1 Entry Layer
 
@@ -38,3 +40,5 @@ This project adopts a layered “atomic architecture” that emphasizes clarity,
 * **Directory structure should explicitly reflect the layering** (e.g., `/entry`, `/coordinator`, `/molecules`, `/atoms`).
 * **Each layer exposes clearly defined interfaces/contracts**, hiding internal implementation details (encapsulation).
 * Supports horizontal scalability: new features are added by introducing new atoms/molecules without modifying existing code (Open–Closed Principle).
+
+

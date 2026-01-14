@@ -20,5 +20,5 @@
   "base_keymap": "VSCode",
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "theme": "Gruvbox Material Dark"
+  "theme": "Catppuccin Mocha"
 }
