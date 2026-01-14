@@ -23,6 +23,7 @@
     "rust-analyzer-lsp@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
     "superpowers@superpowers-marketplace": true,
-    "document-skills@anthropic-agent-skills": true
+    "document-skills@anthropic-agent-skills": true,
+    "planning-with-files@planning-with-files": true
   }
 }
