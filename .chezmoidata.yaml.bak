@@ -1,5 +1,5 @@
 # Theme Configuration
 # Managed by theme-switch script
 theme:
-  name: "gruvbox-material-dark"
+  name: "catppuccin-mocha"
   type: "dark"
