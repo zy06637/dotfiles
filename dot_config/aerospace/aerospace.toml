@@ -115,16 +115,16 @@ on-mode-changed = []
     alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    alt-h = 'focus left'
-    alt-j = 'focus down'
-    alt-k = 'focus up'
-    alt-l = 'focus right'
+    # alt-h = 'focus left'
+    # alt-j = 'focus down'
+    # alt-k = 'focus up'
+    # alt-l = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
-    alt-shift-h = 'move left'
-    alt-shift-j = 'move down'
-    alt-shift-k = 'move up'
-    alt-shift-l = 'move right'
+    alt-shift-n = 'move left'
+    alt-shift-e = 'move down'
+    alt-shift-u = 'move up'
+    alt-shift-i = 'move right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
     alt-shift-minus = 'resize smart -50'
@@ -144,18 +144,18 @@ on-mode-changed = []
     alt-b = 'workspace B'
     alt-c = 'workspace C'
     alt-d = 'workspace D'
-    alt-e = 'workspace E'
+    alt-j = 'workspace J'
     alt-g = 'workspace G'
-    alt-i = 'workspace I'
+    alt-h = 'workspace H'
     alt-m = 'workspace M'
-    # alt-n = 'workspace N'
+    alt-k = 'workspace K'
     alt-o = 'workspace O'
     alt-p = 'workspace P'
     alt-q = 'workspace Q'
     alt-r = 'workspace R'
     alt-s = 'workspace S'
     alt-t = 'workspace T'
-    alt-u = 'workspace U'
+    alt-l = 'workspace L'
     alt-v = 'workspace V'
     alt-w = 'workspace W'
     alt-x = 'workspace X'
@@ -176,19 +176,19 @@ on-mode-changed = []
     alt-shift-b = 'move-node-to-workspace B'
     alt-shift-c = 'move-node-to-workspace C'
     alt-shift-d = 'move-node-to-workspace D'
-    alt-shift-e = 'move-node-to-workspace E'
+    alt-shift-j = 'move-node-to-workspace J'
     alt-shift-f = 'fullscreen'
     alt-shift-g = 'move-node-to-workspace G'
-    alt-shift-i = 'move-node-to-workspace I'
+    alt-shift-h = 'move-node-to-workspace H'
     alt-shift-m = 'move-node-to-workspace M'
-    # alt-shift-n = 'move-node-to-workspace N'
+    alt-shift-k = 'move-node-to-workspace K'
     alt-shift-o = 'move-node-to-workspace O'
     alt-shift-p = 'move-node-to-workspace P'
     alt-shift-q = 'move-node-to-workspace Q'
     alt-shift-r = 'move-node-to-workspace R'
     alt-shift-s = 'move-node-to-workspace S'
     alt-shift-t = 'move-node-to-workspace T'
-    alt-shift-u = 'move-node-to-workspace U'
+    alt-shift-l = 'move-node-to-workspace L'
     alt-shift-v = 'move-node-to-workspace V'
     alt-shift-w = 'move-node-to-workspace W'
     alt-shift-x = 'move-node-to-workspace X'
@@ -214,10 +214,10 @@ on-mode-changed = []
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
 
-    alt-shift-h = ['join-with left', 'mode main']
-    alt-shift-j = ['join-with down', 'mode main']
-    alt-shift-k = ['join-with up', 'mode main']
-    alt-shift-l = ['join-with right', 'mode main']
+    alt-shift-n = ['join-with left', 'mode main']
+    alt-shift-e = ['join-with down', 'mode main']
+    alt-shift-u = ['join-with up', 'mode main']
+    alt-shift-i = ['join-with right', 'mode main']
 
 [[on-window-detected]]
     if.app-id = 'com.tencent.xinWeChat'   # ← 替换成 A 的真实 bundle id
