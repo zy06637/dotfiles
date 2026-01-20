@@ -1,0 +1,107 @@
+# Kenseader Configuration File
+
+[general]
+# Data directory (default: OS-specific local data directory)
+data_dir = "~/Library/Mobile Documents/com~apple~CloudDocs/kenseader"
+
+# Article retention in days (articles older than this are auto-deleted)
+article_retention_days = 3
+
+# Log level: trace, debug, info, warn, error
+log_level = "info"
+
+[keymap]
+move_down = "e"
+move_up = "u"
+focus_left = "n"
+focus_right = "i"
+next_article = "<C-i>"
+prev_article = "<C-n>"
+toggle_unread_only = "k"
+
+
+[ai]
+# Enable AI summarization
+enabled = true
+
+# AI provider options:
+#   CLI-based (requires CLI tool installed):
+#     - "claude_cli"  : Uses Claude CLI (claude command)
+#     - "gemini_cli"  : Uses Gemini CLI (gemini command)
+#     - "codex_cli"   : Uses Codex CLI (codex command)
+#   API-based (requires API key):
+#     - "openai"      : OpenAI API (GPT models)
+#     - "gemini_api"  : Google Gemini API
+#     - "claude_api"  : Anthropic Claude API
+provider = "claude_cli"
+
+# Summary language (e.g., "English", "Chinese", "Japanese", "Spanish", etc.)
+summary_language = "Chinese"
+
+# OpenAI API settings (required if provider = "openai")
+# openai_api_key = "sk-..."
+openai_model = "gpt-4o-mini"
+
+# Gemini API settings (required if provider = "gemini_api")
+# gemini_api_key = "AIza..."
+gemini_model = "gemini-2.0-flash"
+
+# Claude/Anthropic API settings (required if provider = "claude_api")
+# claude_api_key = "sk-ant-..."
+claude_model = "claude-sonnet-4-20250514"
+
+# Max tokens for summary
+max_summary_tokens = 150
+
+# Concurrent summarization tasks
+concurrency = 2
+
+# Minimum content length (chars) for AI summarization
+# Articles shorter than this will not be summarized
+min_summarize_length = 500
+
+# Maximum summary output length (chars)
+max_summary_length = 150
+
+# Relevance threshold for article filtering (0.0-1.0)
+# Articles below this score are auto-marked as read
+relevance_threshold = 0.5
+
+[ui]
+# UI tick rate in milliseconds
+tick_rate_ms = 100
+
+# Show article author
+show_author = true
+
+# Show timestamps
+show_timestamps = true
+
+# Enable image preview in terminal
+image_preview = true
+
+[sync]
+# Schedule check interval
+refresh_interval_secs = 3600
+
+# subs_refresh interval in seconds
+feed_refresh_interval_secs = 43200
+
+# Cleanup interval in seconds (remove old articles)
+cleanup_interval_secs = 43200
+
+# AI summarization interval in seconds
+summarize_interval_secs = 120
+
+# Article filtering interval in seconds
+filter_interval_secs = 120
+
+# HTTP request timeout in seconds
+request_timeout_secs = 60
+
+# Per-domain rate limit delay in milliseconds
+rate_limit_ms = 1000
+
+[rsshub]
+# RSSHub base URL for rsshub:// protocol conversion
+base_url = "https://hub.slarker.me"
