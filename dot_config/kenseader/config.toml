@@ -18,6 +18,11 @@ focus_right = "i"
 next_article = "<C-i>"
 prev_article = "<C-n>"
 toggle_unread_only = "k"
+history_back = "l"
+scroll_half_down = "E"    # Scroll down half page
+scroll_half_up = "U"      # Scroll up half page
+scroll_page_down = "<C-e>"    # Scroll down full page
+scroll_page_up = "<C-u>"      # Scroll up full page
 
 
 [ai]
@@ -79,6 +84,15 @@ show_timestamps = true
 
 # Enable image preview in terminal
 image_preview = true
+
+# theme = "catppuccin-mocha"
+
+[ui.theme]
+name = "catppuccin-mocha"
+# [ui.theme.colors]
+# read = '#fe8019'
+# bg0 = '#fe8019'
+
 
 [sync]
 # Schedule check interval
