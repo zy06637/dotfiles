@@ -3,7 +3,8 @@
     "allow": [
       "Bash(fetch:*)",
       "Bash(pgrep:*)",
-      "Bash(ps:*)"
+      "Bash(ps:*)",
+      "WebFetch"
     ]
   },
   "hooks": {
