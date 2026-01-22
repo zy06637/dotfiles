@@ -2,6 +2,25 @@
 # Claude Code notification helper with tmux/kitty context
 # Priority: tmux > kitty > ignore others
 
+# 无头模式检测 - claude -p 不需要通知
+is_headless_mode() {
+    local pid=$PPID
+    local depth=0
+    while [[ $pid -gt 1 ]] && [[ $depth -lt 10 ]]; do
+        local cmdline=$(ps -o command= -p $pid 2>/dev/null)
+        if [[ "$cmdline" == *"claude"* ]] && [[ "$cmdline" == *" -p"* || "$cmdline" == *" --print"* ]]; then
+            return 0
+        fi
+        pid=$(ps -o ppid= -p $pid 2>/dev/null | tr -d ' ')
+        ((depth++))
+    done
+    return 1
+}
+
+if is_headless_mode; then
+    exit 0
+fi
+
 MESSAGE="$1"
 TITLE=""
 
