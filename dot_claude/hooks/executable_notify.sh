@@ -1,6 +1,7 @@
 #!/bin/bash
 # Claude Code notification helper with tmux/kitty context
 # Priority: tmux > kitty > ignore others
+# Skips notification in headless mode (claude -p)
 
 # 无头模式检测 - claude -p 不需要通知
 is_headless_mode() {
@@ -23,6 +24,24 @@ fi
 
 MESSAGE="$1"
 TITLE=""
+
+# Read hook input from stdin
+HOOK_INPUT=$(cat)
+
+# Debug: log hook input to temp file (remove after debugging)
+echo "$(date): $HOOK_INPUT" >> /tmp/claude_notify_debug.log
+
+# Check if running in headless mode
+# Method 1: Custom env var (set CLAUDE_HEADLESS=1 in your script)
+if [[ "$CLAUDE_HEADLESS" == "1" ]]; then
+    exit 0
+fi
+
+# Method 2: Check permission_mode (for --dangerously-skip-permissions)
+PERMISSION_MODE=$(echo "$HOOK_INPUT" | jq -r '.permission_mode // empty' 2>/dev/null)
+if [[ "$PERMISSION_MODE" == "dontAsk" ]] || [[ "$PERMISSION_MODE" == "bypassPermissions" ]]; then
+    exit 0
+fi
 
 # Priority 1: Check if running in tmux
 if [[ -n "$TMUX" ]]; then
@@ -58,17 +77,12 @@ if [[ -z "$TITLE" ]]; then
     }
 
     if is_kitty_session; then
-        # Try to get Kitty tab title
-        if [[ -t 0 ]]; then
-            WINDOW_ID="$KITTY_WINDOW_ID"
+        # Try to get session_id from hook input to find saved Kitty window ID
+        SESSION_ID=$(echo "$HOOK_INPUT" | jq -r '.session_id // empty' 2>/dev/null)
+        if [[ -n "$SESSION_ID" ]] && [[ -f "/tmp/claude_kitty_${SESSION_ID}" ]]; then
+            WINDOW_ID=$(cat "/tmp/claude_kitty_${SESSION_ID}")
         else
-            INPUT=$(cat)
-            SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty' 2>/dev/null)
-            if [[ -n "$SESSION_ID" ]] && [[ -f "/tmp/claude_kitty_${SESSION_ID}" ]]; then
-                WINDOW_ID=$(cat "/tmp/claude_kitty_${SESSION_ID}")
-            else
-                WINDOW_ID="$KITTY_WINDOW_ID"
-            fi
+            WINDOW_ID="$KITTY_WINDOW_ID"
         fi
 
         # Find Kitty socket
