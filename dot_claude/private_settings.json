@@ -4,7 +4,9 @@
       "Bash(fetch:*)",
       "Bash(pgrep:*)",
       "Bash(ps:*)",
-      "WebFetch"
+      "WebFetch",
+      "Bash(find:*)",
+      "Bash(ls:*)"
     ]
   },
   "hooks": {
