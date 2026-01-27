@@ -7,6 +7,13 @@
 - When an issue is identified in a paragraph within a file of the project (e.g., formatting or syntax), check and correct all other paragraphs in the file.
 - Whenever my actions or behavior deviate from best practices, I need to be provided with clear and effective guidance.
 
+# Python Execution
+
+- **DO NOT** use `python` command directly.
+- Always prefer using the repository-scoped virtual environment (venv).
+- Use `python3` command to execute Python scripts.
+- If a project has a venv, activate it first or use the venv's Python directly (e.g., `.venv/bin/python3` or `venv/bin/python3`).
+
 # When starting the development of a new project or refactoring an existing one, the following rules must be followed:
 This project adopts a layered “atomic architecture” that emphasizes clarity, maintainability, and high cohesion with low coupling.
 
