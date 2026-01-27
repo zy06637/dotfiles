@@ -6,6 +6,7 @@
 - When an issue is identified in a file within the project (e.g., formatting or syntax), check and correct all files of the same type.
 - When an issue is identified in a paragraph within a file of the project (e.g., formatting or syntax), check and correct all other paragraphs in the file.
 - Whenever my actions or behavior deviate from best practices, I need to be provided with clear and effective guidance.
+- If an error or blocker is encountered during work and successfully resolved, immediately invoke the `claude-config-fixer` agent in parallel to capture the issue and update relevant configuration files.
 
 # Python Execution
 
