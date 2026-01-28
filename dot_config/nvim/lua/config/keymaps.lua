@@ -94,3 +94,10 @@ map("n", "S", ":w<CR>", { desc = "保存" })
 -- 搜索导航重映射 (原 n/N 被占用)
 map("n", "=", "n", { desc = "下一个搜索结果" })
 map("n", "-", "N", { desc = "上一个搜索结果" })
+
+-- ==================== 显示切换 ====================
+map("n", "<Leader>tw", function()
+  vim.opt.wrap = not vim.opt.wrap:get()
+  local status = vim.opt.wrap:get() and "开启" or "关闭"
+  vim.notify("软换行: " .. status, vim.log.levels.INFO)
+end, { desc = "切换软换行" })

@@ -70,6 +70,7 @@
     "document-skills@anthropic-agent-skills": true,
     "planning-with-files@planning-with-files": true,
     "claude-md@yoyo": true,
-    "socratic-questioning@yoyo": true
+    "socratic-questioning@yoyo": true,
+    "darwin@yoyo": true
   }
 }
