@@ -71,6 +71,7 @@
     "planning-with-files@planning-with-files": true,
     "claude-md@yoyo": true,
     "socratic-questioning@yoyo": true,
-    "darwin@yoyo": true
+    "darwin@yoyo": true,
+    "claude-md-management@claude-plugins-official": true
   }
 }
