@@ -101,3 +101,21 @@ map("n", "<Leader>tw", function()
   local status = vim.opt.wrap:get() and "开启" or "关闭"
   vim.notify("软换行: " .. status, vim.log.levels.INFO)
 end, { desc = "切换软换行" })
+
+-- ==================== 寄存器管理 ====================
+-- 默认删除/修改不存入寄存器（使用黑洞寄存器）
+map({ "n", "x" }, "d", [["_d]], { desc = "删除(不存寄存器)" })
+map({ "n", "x" }, "c", [["_c]], { desc = "修改(不存寄存器)" })
+map({ "n", "x" }, "x", [["_x]], { desc = "删除字符(不存寄存器)" })
+
+-- <Leader>+按键 存入寄存器（剪切）
+map({ "n", "x" }, "<Leader>d", "d", { desc = "删除(存入寄存器)" })
+map({ "n", "x" }, "<Leader>c", "c", { desc = "修改(存入寄存器)" })
+map({ "n", "x" }, "<Leader>x", "x", { desc = "删除字符(存入寄存器)" })
+
+-- 粘贴不覆盖寄存器（可视模式替换时保留剪贴板内容）
+map("x", "p", [["_dP]], { desc = "粘贴(不覆盖寄存器)" })
+map("x", "<Leader>p", "p", { desc = "粘贴(覆盖寄存器)" })
+
+-- 系统剪贴板操作
+map("x", "<Leader>P", [["+p]], { desc = "从系统剪贴板粘贴" })

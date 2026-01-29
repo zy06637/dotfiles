@@ -1,4 +1,13 @@
 return {
+  -- 自动处理 Markdown 列表序号
+  {
+    "bullets-vim/bullets.vim",
+    ft = { "markdown", "text" },
+    init = function()
+      vim.g.bullets_enabled_file_types = { "markdown", "text" }
+      vim.g.bullets_renumber_on_change = 1 -- 插入/删除时自动重新编号
+    end,
+  },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

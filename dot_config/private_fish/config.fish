@@ -42,3 +42,6 @@ set -gx CPPFLAGS -I/opt/homebrew/opt/ruby/include
 
 # shortcuts
 alias lg='lazygit'
+
+# sqlit config 避免macOS+python多线程fork问题
+set -Ux OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
