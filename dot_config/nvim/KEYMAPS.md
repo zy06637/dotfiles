@@ -96,9 +96,10 @@
 | 快捷键 | 功能 | 原 Vim 键 | 模式 |
 |--------|------|-----------|------|
 | `Y` | 复制至系统剪切板 | `"+y` | v |
-| `k` | 块插入（在选区前） | `I` | x (Visual Block) |
+| `k` | inner 文本对象 (代替 i) | `i` | x (Visual) |
+| `gk` | 块插入（在选区前） | `I` | x (Visual Block) |
 
-> Visual Block 模式 (`Ctrl+v`) 下按 `k` 进入块插入模式。
+> Visual Block 模式 (`Ctrl+v`) 下按 `gk` 进入块插入模式。
 
 ## Surround 操作 (mini.surround)
 
