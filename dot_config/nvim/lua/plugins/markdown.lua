@@ -7,6 +7,19 @@ return {
       vim.g.bullets_enabled_file_types = { "markdown", "text" }
       vim.g.bullets_renumber_on_change = 1 -- 插入/删除时自动重新编号
     end,
+    keys = {
+      { "<leader>mt", "<cmd>ToggleCheckbox<cr>", ft = "markdown", desc = "Toggle Checkbox" },
+      {
+        "<leader>mc",
+        function()
+          local line = vim.api.nvim_get_current_line()
+          local new_line = "- [ ] " .. line:gsub("^%s*", "")
+          vim.api.nvim_set_current_line(new_line)
+        end,
+        ft = "markdown",
+        desc = "Add Checkbox",
+      },
+    },
   },
   {
     "iamcco/markdown-preview.nvim",

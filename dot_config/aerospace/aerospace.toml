@@ -221,13 +221,13 @@ on-mode-changed = []
 
 [[on-window-detected]]
     if.app-id = 'com.tencent.xinWeChat'   # ← 替换成 A 的真实 bundle id
-    run = 'move-node-to-workspace 2'
+    run = 'move-node-to-workspace 3'
 [[on-window-detected]]
     if.app-id = 'com.electron.lark'   
     run = 'move-node-to-workspace 2'
-[[on-window-detected]]
-    if.app-id = 'is.follow'   
-    run = 'move-node-to-workspace 2'
+# [[on-window-detected]]
+#     if.app-id = 'is.follow'   
+#     run = 'move-node-to-workspace 2'
 [[on-window-detected]]
     if.app-id = 'com.todesktop.230313mz14w4u92'   
     run = 'move-node-to-workspace C'
@@ -236,19 +236,19 @@ on-mode-changed = []
     run = 'move-node-to-workspace Z'
 [[on-window-detected]]
     if.app-id = 'company.thebrowser.dia'   
-    run = 'move-node-to-workspace D'
-[[on-window-detected]]
-    if.app-id = 'com.openai.atlas'   
-    run = 'move-node-to-workspace A'
+    run = 'move-node-to-workspace 1'
+# [[on-window-detected]]
+#     if.app-id = 'com.openai.atlas'   
+#     run = 'move-node-to-workspace A'
 [[on-window-detected]]
     if.app-id = 'md.obsidian'   
-    run = 'move-node-to-workspace O'
+    run = 'move-node-to-workspace L'
 [[on-window-detected]]
     if.app-id = 'notion.id'   
-    run = 'move-node-to-workspace I'
-[[on-window-detected]]
-    if.app-id = 'net.shinyfrog.bear'   
-    run = 'move-node-to-workspace U'
+    run = 'move-node-to-workspace J'
+# [[on-window-detected]]
+#     if.app-id = 'net.shinyfrog.bear'   
+#     run = 'move-node-to-workspace U'
 [[on-window-detected]]
     if.app-id = 'com.spotify.client'   
     run = 'move-node-to-workspace M'
