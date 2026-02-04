@@ -1,0 +1,149 @@
+# ==================.shell "/bin/bash"==================================
+# skhd 配置 (Colemak 布局)
+# ====================================================
+#
+# 【键位说明】
+# 因为 karabiner 先将键盘重映射为 Colemak, skhd 收到的是 Colemak 键码。
+# Vim 方向键 hjkl 在 Colemak 下对应:
+#   物理 h → n (左/west)
+#   物理 j → e (下/south)
+#   物理 k → u (上/north)
+#   物理 l → i (右/east)
+#
+# 修饰键:
+#   alt(option)              → 窗口聚焦 / 基础操作
+#   shift + alt              → 窗口移动 / 交换 / Space 操作
+#   ctrl + alt               → 窗口缩放
+#
+# 格式: <modifier> - <key> : <command>
+
+# ====================================================
+#  窗口聚焦  (alt + 方向)
+# ====================================================
+# alt - n : yabai -m window --focus west
+# alt - e : yabai -m window --focus south
+# alt - u : yabai -m window --focus north
+# alt - i : yabai -m window --focus east
+
+# 聚焦上一个/下一个窗口 (在 stack 模式下特别有用)
+alt - 0x29 : yabai -m window --focus stack.prev || yabai -m window --focus prev
+alt - o : yabai -m window --focus stack.next || yabai -m window --focus next
+# 0x29 = 分号键, Colemak 下物理 'o' 键输出 'y', 但分号在 Colemak 是物理 'p'
+# 如果你觉得别扭, 可以改成你顺手的键
+
+# ====================================================
+#  窗口交换  (shift + alt + 方向)
+# ====================================================
+shift + alt - n : yabai -m window --swap west
+shift + alt - e : yabai -m window --swap south
+shift + alt - u : yabai -m window --swap north
+shift + alt - i : yabai -m window --swap east
+
+# Warp: 将窗口移动并重新插入到目标位置 (不同于 swap)
+# swap = 两个窗口互换位置
+# warp = 当前窗口变成目标窗口的子节点
+shift + ctrl + alt - n : yabai -m window --warp west
+shift + ctrl + alt - e : yabai -m window --warp south
+shift + ctrl + alt - u : yabai -m window --warp north
+shift + ctrl + alt - i : yabai -m window --warp east
+
+# ====================================================
+#  窗口缩放  (ctrl + alt + 方向)
+# ====================================================
+# 逻辑: 先尝试调整一侧边缘, 失败则调整对侧
+ctrl + alt - n : yabai -m window --resize left:-40:0 2>/dev/null \
+                 || yabai -m window --resize right:-40:0 2>/dev/null
+ctrl + alt - i : yabai -m window --resize left:40:0 2>/dev/null \
+                 || yabai -m window --resize right:40:0 2>/dev/null
+ctrl + alt - u : yabai -m window --resize top:0:-40 2>/dev/null \
+                 || yabai -m window --resize bottom:0:-40 2>/dev/null
+ctrl + alt - e : yabai -m window --resize top:0:40 2>/dev/null \
+                 || yabai -m window --resize bottom:0:40 2>/dev/null
+
+# ====================================================
+#  窗口操作
+# ====================================================
+
+# 切换全屏缩放 (窗口占满当前 space, 但不是原生全屏)
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# 切换原生全屏
+shift + alt - f : yabai -m window --toggle native-fullscreen
+
+# 切换浮动并居中 (浮动窗口占屏幕 70%)
+alt - t : yabai -m window --toggle float --grid 6:6:1:1:4:4
+
+# 切换分割方向 (水平 ↔ 垂直)
+alt - x : yabai -m window --toggle split
+
+# 旋转窗口树 90°
+alt - r : yabai -m space --rotate 90
+
+# 翻转窗口树 (沿 x 轴 / y 轴)
+shift + alt - x : yabai -m space --mirror x-axis
+shift + alt - y : yabai -m space --mirror y-axis
+
+# 均衡所有窗口大小
+alt - b : yabai -m space --balance
+
+# ====================================================
+#  布局切换
+# ====================================================
+
+# 循环切换布局: bsp → stack → float
+ctrl + alt - space : yabai -m query --spaces --space \
+    | jq -re '.type' \
+    | xargs -I{} bash -c \
+    'case {} in bsp) yabai -m space --layout stack;; stack) yabai -m space --layout float;; float) yabai -m space --layout bsp;; esac'
+
+# 快速切换到指定布局
+ctrl + alt - b : yabai -m space --layout bsp
+ctrl + alt - s : yabai -m space --layout stack
+
+# ====================================================
+#  Space 管理  (需要 Scripting Addition)
+# ====================================================
+
+# 移动窗口到指定 Space
+shift + alt - 1 : yabai -m window --space 1
+shift + alt - 2 : yabai -m window --space 2
+shift + alt - 3 : yabai -m window --space 3
+shift + alt - 4 : yabai -m window --space 4
+shift + alt - 5 : yabai -m window --space 5
+shift + alt - 6 : yabai -m window --space 6
+shift + alt - 7 : yabai -m window --space 7
+shift + alt - 8 : yabai -m window --space 8
+shift + alt - 9 : yabai -m window --space 9
+
+# 移动窗口到指定 Space 并跟随聚焦
+# shift + ctrl + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+# shift + ctrl + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+# (按需取消注释)
+
+# 聚焦指定 Space (需要 SA)
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
+
+# 聚焦上一个/下一个 Space
+alt - 0x21 : yabai -m space --focus prev    # 0x21 = [ 左方括号
+alt - 0x1E : yabai -m space --focus next    # 0x1E = ] 右方括号
+
+# 创建新 Space 并聚焦
+shift + alt - c : yabai -m space --create; set index (yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index'); yabai -m space --focus $index
+
+# 删除当前 Space
+shift + alt - d : yabai -m space --destroy
+
+# ====================================================
+#  快速重载配置
+# ====================================================
+ctrl + alt - r : yabai --restart-service; skhd --reload; \
+    osascript -e 'display notification "yabai & skhd 配置已重载" with title "Config Reloaded"'
+

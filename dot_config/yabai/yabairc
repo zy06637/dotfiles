@@ -1,0 +1,106 @@
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# ============================
+# 全局设置
+# ============================
+
+# 默认布局: bsp(平铺) | stack(堆叠) | float(浮动)
+yabai -m config layout                      bsp
+
+# 新窗口出现在右侧(垂直分割)或下方(水平分割)
+yabai -m config window_placement             second_child
+
+# 窗口间距 (padding & gap)
+yabai -m config top_padding                  10
+yabai -m config bottom_padding               10
+yabai -m config left_padding                 10
+yabai -m config right_padding                10
+yabai -m config window_gap                   10
+
+# ============================
+# 窗口行为
+# ============================
+
+# 自动平衡窗口比例 (新窗口出现时重新均分)
+yabai -m config auto_balance                 off
+
+# 分割比例 (0.5 = 对半分)
+yabai -m config split_ratio                  0.5
+
+# 窗口阴影: on | off | float (仅浮动窗口显示阴影)
+yabai -m config window_shadow                float
+
+# 窗口透明度 (需要 SA)
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.15
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.95
+
+# 窗口动画 (需要屏幕录制权限, 设为 0.0 可跳过该权限)
+yabai -m config window_animation_duration    0.0
+
+# ============================
+# 鼠标设置
+# ============================
+
+# 聚焦跟随鼠标: off | autoraise | autofocus
+yabai -m config focus_follows_mouse          off
+
+# 鼠标跟随聚焦窗口
+yabai -m config mouse_follows_focus          off
+
+# 鼠标操作修饰键 (alt = option)
+yabai -m config mouse_modifier               alt
+
+# 修饰键 + 左键拖拽 = 移动窗口
+yabai -m config mouse_action1                move
+
+# 修饰键 + 右键拖拽 = 缩放窗口
+yabai -m config mouse_action2                resize
+
+# 窗口拖放到另一个窗口中心时交换, 边缘时分割
+yabai -m config mouse_drop_action            swap
+
+# ============================
+# 浮动规则 (不被平铺管理的 App)
+# ============================
+# 格式: yabai -m rule --add app="^正则表达式$" manage=off
+#
+# 【如何添加新规则】
+# 1. 打开目标 App
+# 2. 运行: yabai -m query --windows | jq '.[].app' 查看 app 名称
+# 3. 添加规则: yabai -m rule --add app="^App名称$" manage=off
+# 4. 可选参数:
+#    - sticky=on          窗口置顶(所有 Space 可见)
+#    - layer=above        显示在其他窗口之上
+#    - grid=<rows>:<cols>:<x>:<y>:<w>:<h>  指定浮动位置和大小
+
+# --- 系统应用 ---
+yabai -m rule --add app="^System Settings$"  manage=off
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Calculator$"       manage=off
+yabai -m rule --add app="^Keychain Access$"  manage=off
+yabai -m rule --add app="^Archive Utility$"  manage=off
+yabai -m rule --add app="^Font Book$"        manage=off
+yabai -m rule --add app="^Digital Colou?r Meter$" manage=off
+
+# --- 你的应用 ---
+yabai -m rule --add app="^WeChat$"           manage=off
+yabai -m rule --add app="^微信$"             manage=off
+yabai -m rule --add app="^Surge$"            manage=off
+yabai -m rule --add app="^Finder$"           manage=off
+
+# --- 常见可能需要浮动的应用 ---
+# yabai -m rule --add app="^Karabiner-Elements$" manage=off
+# yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
+# yabai -m rule --add app="^Alfred$"         manage=off
+# yabai -m rule --add app="^Raycast$"        manage=off
+# yabai -m rule --add app="^1Password$"      manage=off
+# yabai -m rule --add app="^Steam$"          manage=off
+# yabai -m rule --add app="^QQ$"             manage=off
+# yabai -m rule --add app="^Telegram$"       manage=off
+
+echo "yabai configuration loaded.."
+
