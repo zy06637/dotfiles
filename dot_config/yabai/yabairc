@@ -91,16 +91,20 @@ yabai -m rule --add app="^WeChat$"           manage=off
 yabai -m rule --add app="^微信$"             manage=off
 yabai -m rule --add app="^Surge$"            manage=off
 yabai -m rule --add app="^Finder$"           manage=off
+yabai -m rule --add app="^Feishu$"           manage=off
+
 
 # --- 常见可能需要浮动的应用 ---
-# yabai -m rule --add app="^Karabiner-Elements$" manage=off
-# yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
-# yabai -m rule --add app="^Alfred$"         manage=off
-# yabai -m rule --add app="^Raycast$"        manage=off
-# yabai -m rule --add app="^1Password$"      manage=off
-# yabai -m rule --add app="^Steam$"          manage=off
-# yabai -m rule --add app="^QQ$"             manage=off
-# yabai -m rule --add app="^Telegram$"       manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
+yabai -m rule --add app="^Alfred$"         manage=off
+yabai -m rule --add app="^Raycast$"        manage=off
+yabai -m rule --add app="^1Password$"      manage=off
+yabai -m rule --add app="^Steam$"          manage=off
+yabai -m rule --add app="^QQ$"             manage=off
+yabai -m rule --add app="^Telegram$"       manage=off
+yabai -m rule --add app="^Shottr$"         manage=off
+
 
 echo "yabai configuration loaded.."
 

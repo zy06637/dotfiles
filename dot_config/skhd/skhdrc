@@ -20,10 +20,10 @@
 # ====================================================
 #  窗口聚焦  (alt + 方向)
 # ====================================================
-# alt - n : yabai -m window --focus west
-# alt - e : yabai -m window --focus south
-# alt - u : yabai -m window --focus north
-# alt - i : yabai -m window --focus east
+alt - n : yabai -m window --focus west
+alt - e : yabai -m window --focus south
+alt - u : yabai -m window --focus north
+alt - i : yabai -m window --focus east
 
 # 聚焦上一个/下一个窗口 (在 stack 模式下特别有用)
 alt - 0x29 : yabai -m window --focus stack.prev || yabai -m window --focus prev
