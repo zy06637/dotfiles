@@ -1,0 +1,73 @@
+[general]
+theme = "gruvbox"
+data_dir = "/Users/kennethx/Library/Mobile Documents/com~apple~CloudDocs/Personal Information/kenotex/"
+
+[keyboard]
+move_left = "n"      # Move cursor left / 光标左移
+move_down = "e"      # Move cursor down / 光标下移
+move_up = "u"        # Move cursor up / 光标上移
+move_right = "i"     # Move cursor right / 光标右移
+
+# Word movement / 单词移动
+word_forward = "w"   # Next word / 下一个单词
+word_backward = "b"  # Previous word / 上一个单词
+
+# Line movement / 行内移动
+line_start = "0"     # Line start / 行首
+line_end = "$"       # Line end / 行尾
+
+# File movement / 文件移动
+file_start = "g"     # File start / 文件开头
+file_end = "G"       # File end / 文件结尾
+
+# -----------------------------------------------------------------------------
+# Insert Mode Entry / 进入插入模式
+# -----------------------------------------------------------------------------
+
+insert = "k"              # Insert at cursor / 在光标处插入
+insert_append = "a"       # Append after cursor / 在光标后追加
+insert_line_start = "K"   # Insert at line start / 在行首插入
+insert_line_end = "A"     # Append at line end / 在行尾追加
+insert_line_below = "o"   # Open line below / 在下方新建行
+insert_line_above = "O"   # Open line above / 在上方新建行
+
+# -----------------------------------------------------------------------------
+# Editing / 编辑操作
+# -----------------------------------------------------------------------------
+
+delete_char = "x"    # Delete character under cursor / 删除光标处字符
+delete_line = "d"    # Delete entire line / 删除整行
+undo = "l"           # Undo last change / 撤销
+
+# -----------------------------------------------------------------------------
+# Mode Switching / 模式切换
+# -----------------------------------------------------------------------------
+
+visual_mode = "v"    # Enter visual mode / 进入可视模式
+search = "/"         # Enter search mode (also 'f') / 进入搜索模式
+search_next = '='
+search_prev = '-'
+
+# -----------------------------------------------------------------------------
+# Other / 其他
+# -----------------------------------------------------------------------------
+
+cycle_theme = "T"    # Cycle through themes / 切换主题
+
+# -----------------------------------------------------------------------------
+# Leader Commands (Space + key) / Leader 命令（空格 + 按键）
+# -----------------------------------------------------------------------------
+
+leader_process = "s"  # Process and distribute blocks / 处理并分发内容块
+leader_list = "l"     # Open draft list / 打开草稿列表
+leader_new = "n"      # Create new note / 新建笔记
+leader_save = "w"     # Save current note / 保存当前笔记
+
+[destinations.reminders]
+app = "apple"
+list = "工作"
+
+[destinations.calendar]
+app = "apple"
+calendar_name = "个人"
+
