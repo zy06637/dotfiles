@@ -59,6 +59,17 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -f Cargo.toml ]; then cargo check --quiet 2>&1 | head -20; fi"
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {

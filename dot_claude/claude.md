@@ -48,4 +48,14 @@ This project adopts a layered “atomic architecture” that emphasizes clarity,
 * **Each layer exposes clearly defined interfaces/contracts**, hiding internal implementation details (encapsulation).
 * Supports horizontal scalability: new features are added by introducing new atoms/molecules without modifying existing code (Open–Closed Principle).
 
+## Terminal Configuration
 
+When working with kitty terminal configuration, always check for conflicting settings in both the main kitty.conf and any include files. Fish shell can override cursor settings - check ~/.config/fish/config.fish if cursor changes aren't applying.
+
+## Database
+
+For SQLite databases synced via iCloud, always implement retry logic with exponential backoff to handle transient I/O errors during sync operations.
+
+## Plugin Development
+
+When creating plugins or packages, validate JSON schema compliance (marketplace.json, plugin.json) and directory naming conventions BEFORE committing. Double-check that old naming artifacts are fully cleaned up.
