@@ -59,3 +59,21 @@ For SQLite databases synced via iCloud, always implement retry logic with expone
 ## Plugin Development
 
 When creating plugins or packages, validate JSON schema compliance (marketplace.json, plugin.json) and directory naming conventions BEFORE committing. Double-check that old naming artifacts are fully cleaned up.
+
+## Safety Rules
+
+- When asked to revert or remove a specific feature, only remove exactly what was requested. Do NOT remove related features unless explicitly told to. Always confirm scope before making destructive changes.
+
+## Implementation Rules
+
+- When implementing features, always produce working code — never leave stub/placeholder implementations. If the full implementation is complex, implement the core logic first rather than wiring up empty handlers.
+
+## Project-Specific Notes
+
+### Rust TUI Editor (kenotex)
+
+CJK/multi-byte character width handling is critical. When implementing any visual/cursor/rendering feature, always account for wide characters (Chinese, Japanese, Korean) using `unicode_width`. Test with multi-byte content.
+
+### Invest Analysis Workflow
+
+Analyst sub-agents may hit context limits. When launching parallel analyst agents, use simplified/condensed prompts to avoid "Prompt is too long" errors. If an agent fails, relaunch with a shorter prompt automatically.

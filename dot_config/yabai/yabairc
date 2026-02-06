@@ -87,11 +87,11 @@ yabai -m rule --add app="^Font Book$"        manage=off
 yabai -m rule --add app="^Digital Colou?r Meter$" manage=off
 
 # --- 你的应用 ---
-yabai -m rule --add app="^WeChat$"           manage=off
-yabai -m rule --add app="^微信$"             manage=off
+# yabai -m rule --add app="^WeChat$"           manage=off
+# yabai -m rule --add app="^微信$"             manage=off
 yabai -m rule --add app="^Surge$"            manage=off
 yabai -m rule --add app="^Finder$"           manage=off
-yabai -m rule --add app="^Feishu$"           manage=off
+# yabai -m rule --add app="^Feishu$"           manage=off
 
 
 # --- 常见可能需要浮动的应用 ---
