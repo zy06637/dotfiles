@@ -106,8 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # 设置代理函数
-export http_proxy="http://127.0.0.1:6152"
-export https_proxy=$http_proxy
+# export http_proxy="http://127.0.0.1:6152"
+# export https_proxy=$http_proxy
 
 export PATH="$HOME/.local/bin:$PATH"
 
