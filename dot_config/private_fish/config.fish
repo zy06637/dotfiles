@@ -6,8 +6,8 @@ set -x LANG en_US.UTF-8
 set -x EDITOR nvim
 
 # 代理
-set -x http_proxy http://127.0.0.1:6152
-set -x https_proxy $http_proxy
+# set -x http_proxy http://127.0.0.1:6152
+# set -x https_proxy $http_proxy
 
 # PATH（fish 推荐方式）
 fish_add_path $HOME/.local/bin
