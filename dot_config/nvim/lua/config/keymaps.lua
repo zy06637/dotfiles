@@ -28,7 +28,7 @@ map({ "n", "v" }, "ge", "gj", { desc = "软换行下移" })
 -- 快速导航
 map({ "n", "v" }, "U", "5k", { desc = "快速上移5行" })
 map({ "n", "v" }, "E", "5j", { desc = "快速下移5行" })
-map({ "n", "v" }, "N", "0", { desc = "行首" })
+map({ "n", "v" }, "N", "^", { desc = "行首(非空白)" })
 map({ "n", "v" }, "I", "$", { desc = "行尾" })
 map({ "n", "v" }, "h", "e", { desc = "词尾" })
 map({ "n", "v" }, "W", "5w", { desc = "前进5个单词" })
@@ -93,10 +93,13 @@ map("n", "tmi", ":+tabmove<CR>", { desc = "Tab 右移" })
 map("n", ";", ":", { desc = "命令模式" })
 map("n", "Q", ":q<CR>", { desc = "退出" })
 map("n", "S", ":w<CR>", { desc = "保存" })
+map("n", "<Leader>w", "<cmd>w<CR>", { desc = "保存" })
+map("n", "<Leader>q", "<cmd>q<CR>", { desc = "退出" })
+map("n", "<Leader>x", "<cmd>x<CR>", { desc = "保存并退出" })
 
 -- 搜索导航重映射 (原 n/N 被占用)
-map("n", "=", "n", { desc = "下一个搜索结果" })
-map("n", "-", "N", { desc = "上一个搜索结果" })
+map("n", "=", "nzzzv", { desc = "下一个搜索结果" })
+map("n", "-", "Nzzzv", { desc = "上一个搜索结果" })
 
 -- ==================== 显示切换 ====================
 map("n", "<Leader>tw", function()
@@ -114,11 +117,30 @@ map({ "n", "x" }, "x", [["_x]], { desc = "删除字符(不存寄存器)" })
 -- <Leader>+按键 存入寄存器（剪切）
 map({ "n", "x" }, "<Leader>d", "d", { desc = "删除(存入寄存器)" })
 map({ "n", "x" }, "<Leader>c", "c", { desc = "修改(存入寄存器)" })
-map({ "n", "x" }, "<Leader>x", "x", { desc = "删除字符(存入寄存器)" })
 
 -- 粘贴不覆盖寄存器（可视模式替换时保留剪贴板内容）
 map("x", "p", [["_dP]], { desc = "粘贴(不覆盖寄存器)" })
 map("x", "<Leader>p", "p", { desc = "粘贴(覆盖寄存器)" })
 
 -- 系统剪贴板操作
+map({ "n", "x" }, "<Leader>y", '"+y', { desc = "复制至系统剪贴板" })
+map("n", "<Leader>p", '"+p', { desc = "从系统剪贴板粘贴" })
 map("x", "<Leader>P", [["+p]], { desc = "从系统剪贴板粘贴" })
+
+-- ==================== 行移动 ====================
+map("n", "<A-e>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "下移行" })
+map("n", "<A-u>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "上移行" })
+map("i", "<A-e>", "<esc><cmd>m .+1<cr>==gi", { desc = "下移行" })
+map("i", "<A-u>", "<esc><cmd>m .-2<cr>==gi", { desc = "上移行" })
+map("v", "<A-e>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "下移选区" })
+map("v", "<A-u>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "上移选区" })
+
+-- ==================== 搜索 ====================
+map("n", "<Leader>/", "<cmd>noh<CR>", { desc = "清除搜索高亮" })
+
+-- ==================== 缓冲区导航 ====================
+map("n", "<Leader>bn", "<cmd>bnext<CR>", { desc = "下一个缓冲区" })
+map("n", "<Leader>bp", "<cmd>bprev<CR>", { desc = "上一个缓冲区" })
+
+-- ==================== 实用工具 ====================
+map("n", "gV", "`[v`]", { desc = "选中刚粘贴/修改的内容" })
